@@ -6,7 +6,9 @@
  */
 
 import { NewAppScreen } from "@react-native/new-app-screen";
-import { StatusBar, StyleSheet, useColorScheme, View } from "react-native";
+import { StyleSheet, Text, useColorScheme, View } from "react-native";
+import { add } from "@acme/ui/add";
+import { StatusBar } from "@acme/ui/status-bar";
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
@@ -19,6 +21,9 @@ export function App() {
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
       <AppContent />
+      <Text style={{ color: isDarkMode ? "white" : "black" }}>
+        Sum example (1 + 2): {add(1, 2)}
+      </Text>
     </SafeAreaProvider>
   );
 }

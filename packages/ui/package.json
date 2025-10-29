@@ -1,0 +1,23 @@
+{
+  "name": "@acme/ui",
+  "version": "1.0.0",
+  "private": true,
+  "exports": {
+    "./*": "./dist/*.js"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "build": "rimraf dist && tsc",
+    "postinstall": "npm run build",
+    "watch": "tsc --watch"
+  },
+  "peerDependencies": {
+    "react": "19.2.0",
+    "react-native": "0.82.1"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "*",
+    "@acme/typescript-config": "*",
+    "rimraf": "3.0.2"
+  }
+}

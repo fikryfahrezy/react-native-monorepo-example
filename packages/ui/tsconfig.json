@@ -1,0 +1,17 @@
+{
+  "extends": "@acme/typescript-config/react-native",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "tests/**/*"
+  ],
+  "exclude": [
+     "./dist/**/*",
+  ],
+  "compilerOptions": {
+    "allowImportingTsExtensions": false,
+    "outDir": "dist",
+    "noEmit": false,
+    "declaration": true
+  }
+}
