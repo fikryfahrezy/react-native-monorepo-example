@@ -1,0 +1,12 @@
+{
+  "name": "@acme/eslint-config",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "8.46.2"
+  }
+}
