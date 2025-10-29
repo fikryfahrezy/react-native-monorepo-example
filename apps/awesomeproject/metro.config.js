@@ -1,9 +1,10 @@
-const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
-const path = require('path');
+const path = require("path");
+
+const { getDefaultConfig, mergeConfig } = require("@react-native/metro-config");
 
 // Find the project root (monorepo root)
 const projectRoot = __dirname;
-const monorepoRoot = path.resolve(projectRoot, '../..');
+const monorepoRoot = path.resolve(projectRoot, "../..");
 
 /**
  * Metro configuration
@@ -16,8 +17,8 @@ const config = {
   watchFolders: [monorepoRoot],
   resolver: {
     nodeModulesPaths: [
-      path.resolve(projectRoot, 'node_modules'),
-      path.resolve(monorepoRoot, 'node_modules'),
+      path.resolve(projectRoot, "node_modules"),
+      path.resolve(monorepoRoot, "node_modules"),
     ],
   },
 };

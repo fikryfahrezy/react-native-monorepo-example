@@ -1,0 +1,11 @@
+{
+  "name": "@acme/typescript-config",
+  "version": "1.0.0",
+  "private": true,
+  "exports": {
+    "./react-native": "./tsconfig.react-native.json"
+  },
+  "dependencies": {
+    "@react-native/typescript-config": "0.82.1"
+  }
+}
