@@ -1,3 +1,7 @@
+# Turborepo
+#
+.turbo
+
 # node.js
 #
 node_modules/

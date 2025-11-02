@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "build": "rimraf dist && tsc",
     "postinstall": "npm run build",
-    "watch": "tsc --watch"
+    "dev": "tsc --watch"
   },
   "peerDependencies": {
     "react": "19.2.0",
