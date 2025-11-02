@@ -11,15 +11,15 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [
-        "build/**",
-        "node_modules/.cache/metro/**"
-      ]
+      "outputs": ["build/**", "node_modules/.cache/metro/**"]
     },
     "dev": {
       "cache": false,
       "interactive": true,
       "persistent": true
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
     }
   }
 }
