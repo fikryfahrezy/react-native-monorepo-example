@@ -1,62 +1,101 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Monorepo Example
 
-# Getting Started
+This is a [**React Native**](https://reactnative.dev) monorepo project managed with [**Turborepo**](https://turbo.build/repo), featuring shared packages and configurations across multiple apps.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Project Structure
 
-## Step 1: Start Metro
-
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
-
-To start the Metro dev server, run the following command from the root of your React Native project:
-
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+```
+.
+├── apps/
+│   └── awesomeproject/      # React Native application
+├── packages/
+│   ├── ui/                  # Shared UI components
+│   ├── eslint-config/       # Shared ESLint configuration
+│   └── typescript-config/   # Shared TypeScript configuration
+└── turbo.json              # Turborepo configuration
 ```
 
-## Step 2: Build and run your app
+## Prerequisites
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+- Node.js >= 22
+- npm >= 11
+- Complete the [React Native Environment Setup](https://reactnative.dev/docs/set-up-your-environment) guide
+
+## Getting Started
+
+### Install Dependencies
+
+Install all dependencies for the monorepo:
+
+```sh
+npm install
+```
+
+### Available Scripts
+
+From the root of the monorepo:
+
+```sh
+# Run all development servers
+npm run dev
+
+# Run dev server for specific app
+npm run dev:awesomeproject
+
+# Run linting across all packages
+npm run lint
+
+# Run tests across all packages
+npm run test
+
+# Build all packages
+npm run build
+
+# Type check all packages
+npm run check-types
+```
+
+## Running the React Native App
+
+### Step 1: Start Metro
+
+Start the Metro bundler for the awesomeproject app:
+
+```sh
+npm run dev:awesomeproject
+```
+
+### Step 2: Build and run your app
+
+With Metro running, open a new terminal window and use one of the following commands to build and run the app:
 
 ### Android
 
-```sh
-# Using npm
-npm run android
+Navigate to the app directory and run:
 
-# OR using Yarn
-yarn android
+```sh
+cd apps/awesomeproject
+npm run android
 ```
 
 ### iOS
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+For iOS, first install CocoaPods dependencies (run this on first clone or after updating native dependencies):
 
 ```sh
+cd apps/awesomeproject/ios
 bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
 bundle exec pod install
+cd ..
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+Then run the app:
 
 ```sh
-# Using npm
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
+
+For more information, visit the [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
 If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
 
@@ -64,34 +103,55 @@ This is one way to run your app — you can also build it directly from Android 
 
 ## Step 3: Modify your app
 
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+Open [apps/awesomeproject/App.tsx](apps/awesomeproject/App.tsx) in your editor and make changes. The app will automatically update thanks to [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
 
 When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
 
 - **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
 - **iOS**: Press <kbd>R</kbd> in iOS Simulator.
 
-## Congratulations! :tada:
+## Monorepo Features
 
-You've successfully run and modified your React Native App. :partying_face:
+### Shared Packages
 
-### Now what?
+This monorepo includes shared packages that can be used across multiple apps:
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+- **@acme/ui** - Shared React Native UI components
+- **@acme/eslint-config** - Shared ESLint configuration
+- **@acme/typescript-config** - Shared TypeScript configuration
 
-# Troubleshooting
+### Turborepo Benefits
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+- **Smart caching** - Tasks are cached and never computed twice
+- **Parallel execution** - Tasks run in parallel when possible
+- **Task pipelines** - Define relationships between tasks
+- **Remote caching** - Share cache across teams (when configured)
 
-# Learn More
+### Code Quality Tools
 
-To learn more about React Native, take a look at the following resources:
+This project includes:
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- **Husky** - Git hooks for pre-commit checks
+- **lint-staged** - Run linters on staged files
+- **ESLint** - Code linting
+- **TypeScript** - Type checking
+- **Prettier** - Code formatting
+
+## Troubleshooting
+
+If you're having issues, see the [React Native Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+
+## Learn More
+
+### React Native Resources
+
+- [React Native Website](https://reactnative.dev) - learn more about React Native
+- [Getting Started](https://reactnative.dev/docs/environment-setup) - environment setup guide
+- [Learn the Basics](https://reactnative.dev/docs/getting-started) - guided tour of React Native basics
+- [Blog](https://reactnative.dev/blog) - latest official React Native blog posts
+- [`@facebook/react-native`](https://github.com/facebook/react-native) - GitHub repository for React Native
+
+### Turborepo Resources
+
+- [Turborepo Documentation](https://turbo.build/repo/docs) - learn about Turborepo features
+- [Monorepo Handbook](https://turbo.build/repo/docs/handbook) - best practices for monorepos
