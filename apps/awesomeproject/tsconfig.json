@@ -1,0 +1,6 @@
+{
+  "extends": "@acme/typescript-config/react-native-expo",
+  "compilerOptions": {
+    "strict": true
+  }
+}
