@@ -10,7 +10,8 @@
     "lint": "expo lint",
     "dev": "expo start --dev-client",
     "test": "jest",
-    "prebuild": "expo prebuild",
+    "prebuild:clean": "expo prebuild --clean",
+    "postinstall": "expo prebuild",
     "web": "expo start --web",
     "build": "echo \"No build script specified\""
   },
